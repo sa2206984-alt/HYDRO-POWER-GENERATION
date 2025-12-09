@@ -1,0 +1,240 @@
+# Sample<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hydropower Generation — Simple Project</title>
+  <meta name="description" content="A simple one-page website about hydropower generation for practical use." />
+  <style>
+    /* Simple, clean styling suitable for a student practical */
+    :root{--accent:#0b74de;--muted:#666;--card:#f7f9fc}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.5;margin:0;color:#111}
+    header{background:linear-gradient(90deg,var(--accent),#136f9f);color:#fff;padding:28px 18px}
+    .container{max-width:920px;margin:22px auto;padding:0 18px}
+    nav{display:flex;gap:12px;align-items:center}
+    nav a{color:rgba(255,255,255,0.95);text-decoration:none;font-weight:600}
+    h1{margin:0 0 6px;font-size:1.6rem}
+    .lead{opacity:.95;margin:0;font-size:0.95rem}
+    section{background:#fff;border-radius:10px;padding:18px;margin-bottom:14px;box-shadow:0 6px 18px rgba(16,24,40,.06)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:16px}
+    .card{background:var(--card);padding:12px;border-radius:8px}
+    ul{margin:8px 0 8px 18px}
+    .steps{counter-reset:step;margin:0;padding:0}
+    .steps li{list-style:none;margin:10px 0;padding-left:36px;position:relative}
+    .steps li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
+    footer{font-size:0.9rem;color:var(--muted);text-align:center;padding:18px}
+    @media (max-width:820px){.grid{grid-template-columns:1fr}}
+    /* small SVG styling */
+    .illustration{width:100%;height:auto;border-radius:8px;overflow:hidden;background:#eef7ff;padding:8px}
+    code{background:#111a; padding:2px 6px;border-radius:6px;font-family:monospace}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div>
+          <h1>Hydropower Generation — Simple</h1>
+          <p class="lead">One-page website for a practical: explanation, diagram, components, pros/cons.</p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HOW TO USE: visible instructions for your practical -->
+    <section>
+      <h2>How to use this file (Step-by-step)</h2>
+      <ol class="steps">
+        <li>Download this file (use the canvas download or copy-paste into a file called <code>index.html</code>).</li>
+        <li>Open <code>index.html</code> in your browser to preview locally (double-click or drag into browser).</li>
+        <li>To edit content, open the file in any text editor (Notepad, VS Code). Change headings, text, images.</li>
+        <li>To show or submit your practical: either present the local file or upload to GitHub and enable GitHub Pages (instructions at the bottom).</li>
+      </ol>
+    </section>
+
+    <section class="grid">
+      <div>
+        <h2>Introduction</h2>
+        <p>Hydropower (hydroelectric) generation uses flowing water to produce electricity. It's a renewable source that converts the potential and kinetic energy of water into mechanical energy with turbines and then into electrical energy with generators.</p>
+
+        <h3>Main Sections</h3>
+        <ul>
+          <li>How it works — simple diagram</li>
+          <li>Key components</li>
+          <li>Advantages & limitations</li>
+          <li>Small example & calculation</li>
+        </ul>
+
+        <h3>Simple Working Diagram</h3>
+        <div class="illustration">
+          <!-- Inline SVG: dam + penstock + turbine (keeps file self-contained) -->
+          <svg viewBox="0 0 800 260" width="100%" height="160" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <!-- sky -->
+            <rect width="800" height="260" fill="#e6f2fb" />
+            <!-- dam -->
+            <rect x="60" y="80" width="220" height="120" fill="#dfe8f2" stroke="#b7cbe0"/>
+            <path d="M60 80 L170 10 L280 80 Z" fill="#dfe8f2" stroke="#b7cbe0"/>
+            <rect x="135" y="130" width="50" height="70" fill="#b7d3ff" />
+            <!-- water -->
+            <rect x="280" y="160" width="520" height="40" fill="#90c9ff" />
+            <!-- penstock -->
+            <path d="M220 160 C300 155 360 170 420 160" stroke="#445" stroke-width="12" fill="none" stroke-linecap="round"/>
+            <!-- turbine box -->
+            <rect x="420" y="140" width="80" height="60" fill="#dbeaf0" stroke="#9bb7c5"/>
+            <!-- generator -->
+            <circle cx="530" cy="170" r="22" fill="#fff" stroke="#c7dce6"/>
+            <text x="525" y="175" font-size="10" fill="#333">G</text>
+            <!-- arrows for flow -->
+            <path d="M260 150 L340 150" stroke="#045" stroke-width="3" marker-end="url(#arrow)"/>
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+                <path d="M0 0 L6 3 L0 6 Z" fill="#045" />
+              </marker>
+            </defs>
+          </svg>
+        </div>
+
+        <h3>How it works (short)</h3>
+        <p>Water stored at height (in reservoir) flows through a penstock to a turbine; the moving water spins the turbine which turns a generator to make electricity. Power depends on the water flow rate (Q) and head (H).</p>
+
+        <h3>Basic formula (use in practical)</h3>
+        <p><strong>Electrical Power (approx):</strong> <code>P = &rho; * g * Q * H * &eta;</code></p>
+        <p style="color:var(--muted)">Where: &rho; = water density (~1000 kg/m³), g = 9.81 m/s², Q = flow (m³/s), H = head (m), &eta; = efficiency (0–1).</p>
+
+        <h3>Mini example</h3>
+        <p>If Q = 5 m³/s, H = 20 m, efficiency = 0.85 then</p>
+        <p><code>P = 1000 * 9.81 * 5 * 20 * 0.85 ≈ 834,  000 W ≈ 834 kW</code></p>
+
+      </div>
+
+      <aside>
+        <div class="card">
+          <h4>Key Components</h4>
+          <ul>
+            <li><strong>Reservoir / Dam</strong> — stores water and provides head.</li>
+            <li><strong>Intake & Penstock</strong> — channels water to turbines.</li>
+            <li><strong>Turbine</strong> — converts water energy to mechanical energy.</li>
+            <li><strong>Generator</strong> — converts mechanical energy to electrical energy.</li>
+            <li><strong>Control systems</strong> — gates, governors, and transformers.</li>
+          </ul>
+          <h4>Advantages</h4>
+          <ul>
+            <li>Renewable, low operating cost, fast dispatch.</li>
+          </ul>
+          <h4>Limitations</h4>
+          <ul>
+            <li>Environmental impact, site-specific, high initial cost.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h4>Files & editing</h4>
+          <p>To change any text: edit this file and open in browser. To replace the diagram, swap the SVG block or add an <code>&lt;img&gt;</code> with your image file.</p>
+          <h4>Suggested folder</h4>
+          <p>Create a folder <code>hydro-site</code> with <code>index.html</code> and an <code>images/</code> folder for pictures.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section>
+      <h2>Expanded content for your report / slides</h2>
+      <p>Use the text below to copy into your report or slide notes. Keep it short and factual for practical evaluation.</p>
+      <ul>
+        <li><strong>Definition:</strong> Hydropower is electricity produced from the energy of flowing water.</li>
+        <li><strong>Uses:</strong> Grid supply, pumped storage for balancing, irrigation support.</li>
+        <li><strong>Environmental points:</strong> Changes to river ecology, displacement, sediments.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Host & Share (quick options)</h2>
+      <h3>Option A — Local preview (easy)</h3>
+      <ol>
+        <li>Save as <code>index.html</code> on your computer.</li>
+        <li>Double-click the file or drag it into your browser — it will open locally.</li>
+        <li>Present from your computer in the lab or classroom.</li>
+      </ol>
+
+      <h3>Option B — Publish using GitHub Pages (recommended for sharing)</h3>
+      <ol>
+        <li>Create a free GitHub account at <code>github.com</code> (if you don't have one).</li>
+        <li>Make a new repository named <code>hydro-site</code> and upload <code>index.html</code> (use "Add file &gt; Upload files").</li>
+        <li>In repository Settings &gt; Pages, select branch <code>main</code> and root directory, then Save. Your site will be available at <code>https://username.github.io/hydro-site</code> (may take a minute).</li>
+      </ol>
+
+      <h3>Option C — Use a free hosting builder</h3>
+      <p>Services like Netlify, Vercel, or Google Firebase Hosting can host single-page sites for free and provide step-by-step deployment wizards.</p>
+    </section>
+
+    <section>
+      <h2>Extra: Short checklist for your practical</h2>
+      <ul>
+        <li>Cover slide (title, your name, date, course)</li>
+        <li>Open the site locally and show the diagram</li>
+        <li>Explain the formula and compute the small example</li>
+        <li>Mention two advantages and two limitations</li>
+        <li>Answer two questions from teacher (site, components, calculation)</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Made for practical — simple one-page hydropower explanation. Edit freely. Good luck!</p>
+    </div>
+  </footer>
+</body>
+</html>
+ workflow for building and deploying a Jekyll site to GitHub Pages
+name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
